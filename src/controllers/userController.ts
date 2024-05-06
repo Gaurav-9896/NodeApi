@@ -49,7 +49,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const token = jwt.sign({ userId: user._id }, config.JWT_token as string, {
       expiresIn: "1h",
     });
-    res.status(200).json({ token });
+    res.status(200).json(`login succesful, TOKEN :${token}`);
   } catch (error) {
     console.error("Login failed:", error);
     res.status(500).json({ message: "Login failed" });
